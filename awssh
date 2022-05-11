@@ -1,0 +1,9 @@
+#!/bin/bash
+ip=$(aws ec2 describe-instances --region us-east-1 --profile new  --filters Name=tag:Name,Values="$1" --query 'Reservations[*].Instances[*].[PublicIpAddress]' --output text)
+
+if [[ ! "$ip" ]]; then
+    echo "Host not found"
+else
+    conn_str="ssh ec2-user@$ip"
+    eval "$conn_str"
+fi

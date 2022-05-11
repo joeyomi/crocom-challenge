@@ -1,0 +1,7 @@
+pandas
+flask
+python-decouple
+pymysql
+flask_sqlalchemy
+flask_migrate
+python-decouple
